@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초상현상관리국 | 내부망</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+New&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="splash-screen">
+        <div class="login-box">
+            <h1 class="bphc-logo">[ BPHC ]</h1>
+            <h2>초상현상관리국 | 내부망</h2>
+            <div class="warning-text">
+                <p><strong>경고:</strong> 본 시스템은 인가된 인원만 접근할 수 있습니다.</p>
+                <p>모든 접속 기록은 추적 및 기록됩니다. 비인가 접근 시도 시 관련 규정에 따라 처벌받을 수 있습니다.</p>
+            </div>
+            <p id="loading-status">[탐사자 구인 공고]를 통한 외부 접속 확인...</p>
+            <button id="login-button">[ 접속 ]</button>
+        </div>
+    </div>
+
+    <div id="main-app" class="hidden">
+        <header>
+            <div class="header-left">
+                <span class="bphc-logo-small">[BPHC]</span>
+                <span>초상현상관리국 내부 포털</span>
+            </div>
+            <div class="header-right">
+                <span>임시 탐사자 ID: <span id="user-uuid" class="monospace"></span></span> |
+                <a href="#" id="logout-button">[로그아웃]</a>
+            </div>
+        </header>
+
+        <div class="app-container">
+            <nav>
+                <h3>[ 주 메뉴 ]</h3>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="dashboard">메인 대시보드</a></li>
+                    <li><a href="#" class="nav-link" data-page="organization">조직 개요</a></li>
+                    <li><a href="#" class="nav-link" data-page="database">사상체 데이터베이스</a></li>
+                    <li><a href="#" class="nav-link" data-page="guidelines">탐사자 행동 지침</a></li>
+                    <li class="project-link"><a href="#" class="nav-link" data-page="project-nosfovia">▷ 프로젝트: 노스포비아</a></li>
+                </ul>
+            </nav>
+
+            <main id="main-content">
+                <div id="page-dashboard" class="page-content">
+                    <h2>메인 대시보드</h2>
+                    <div class="widget warning">
+                        <h3>[!] 주요 알림: 임무 배정</h3>
+                        <p>귀하는 <strong>[프로젝트: 노스포비아]</strong>에 배정되었습니다.</p>
+                        <p>대상 사상체 <a href="#" class="inline-link" data-page="project-nosfovia">[Aj-06-SP-0341: 노스포비아]</a>의 문서를 즉시 숙지하고, 지정된 일시에 시작될 1차 공개 관측(방송)에 대비하십시오.</p>
+                    </div>
+
+                    <div class="widget danger">
+                        <h3>[!] 최근 보안 경보</h3>
+                        <ul class="log-list">
+                            <li><span class="timestamp">2025/11/18 09:14</span> - 사상체 <span class="redacted">Bk-03-NF-0002</span> 격리 실패. 3등급 경보 발령.</li>
+                            <li><span class="timestamp">2025/11/17 22:01</span> - 04번 구역, 정보재해 오염으로 임시 폐쇄 조치.</li>
+                            <li><span class="timestamp">2025/11/17 15:30</span> - <span class="redacted">███ 요원</span>, 3등급 정신 오염으로 격리.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="page-organization" class="page-content hidden">
+                    <h2>조직 개요</h2>
+                    <p>초상현상관리국(Bureau of Paranormal Hazard Control, BPHC)은 대한민국 영토 내에서 발생하는 각종 초상 현상 및 '사상체'를 관리, 통제, 연구하는 정부 산하 비밀 기관입니다.</p>
+                    
+                    <div class="security-section" data-level="1">
+                        <h3>[LEVEL 1: 탐사자]</h3>
+                        <p>귀하의 인가 등급으로 열람 가능한 정보입니다.</p>
+                        <ul>
+                            <li><strong>대외적 목적:</strong> 초상 현상으로부터 국민의 생명과 재산을 보호하고 사회적 혼란을 방지.</li>
+                            <li><strong>탐사자 역할:</strong> 관리국의 통제 하에 특정 사상체(e.g., 노스포비아)를 '관측'하고 데이터를 수집하는 외부 협력 인력.</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-section locked" data-level="2">
+                        <h3>[LEVEL 2: 내부 인원]</h3>
+                        <p class="access-denied-text" data-page="access-denied">
+                            <span class="monospace">[인가 등급 부족]</span> 귀하의 보안 등급(LEVEL 1)으로는 본 정보에 접근할 수 없습니다.
+                        </p>
+                        <div class="locked-content">
+                            <p>주요 4대 부서:</p>
+                            <ul>
+                                <li>현장 작전부</li>
+                                <li>보안 통제부</li>
+                                <li>연구 개발부</li>
+                                <li>관리 행정부</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="security-section locked" data-level="4">
+                        <h3>[LEVEL 4: O5]</h3>
+                        <p class="access-denied-text" data-page="access-denied">
+                            <span class="monospace">[인가 등급 부족]</span> 귀하의 보안 등급(LEVEL 1)으로는 본 정보에 접근할 수 없습니다.
+                        </p>
+                        <div class="locked-content">
+                            <p>관리국의 궁극적 목적: <span class="redacted">████ 자원의 확보 및 ███</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-database" class="page-content hidden">
+                    <h2>사상체 데이터베이스</h2>
+                    <p>총 <span id="db-count">0</span>개의 사상체 기록이 검색되었습니다. (열람 가능 기준)</p>
+                    <table class="db-table">
+                        <thead>
+                            <tr>
+                                <th>식별 코드</th>
+                                <th>명칭</th>
+                                <th>위험 등급</th>
+                                <th>격리 상태</th>
+                            </tr>
+                        </thead>
+                        <tbody id="db-table-body">
+                            </tbody>
+                    </table>
+                </div>
+
+                <div id="page-guidelines" class="page-content hidden">
+                    <h2>탐사자 행동 지침 [문서 P-NOS-G01]</h2>
+                    <p><strong>경고:</strong> [프로젝트: 노스포비아]에 참여하는 모든 탐사자는 관측(시청) 중 다음 지침을 **반드시** 준수해야 합니다. <strong>지침 위반으로 인한 정신 오염 및 신변 상의 문제는 관리국이 책임지지 않습니다.</strong></p>
+
+                    <ol class="rules-list">
+                        <li>'노스(X-01)'의 질문에 절대 본인의 실명, 주소, 연락처 등 개인 식별 정보를 응답하지 마십시오.</li>
+                        <li>'노스'가 <span class="redacted">[편집됨]</span>에 대해 3분 이상 발언할 경우, 즉시 방송을 종료하고 10분간 휴식하십시오.</li>
+                        <li>'방송 공간(X-02)'의 배경에 <span class="redacted">[알 수 없는 문자]</span>가 관측될 경우, 채팅창에 [오류: 화면 송출 불량]이라고 즉시 보고하십시오.</li>
+                        <li>'노스'에게 관리국의 존재나 본인의 '탐사자' 신분을 암시하는 모든 발언을 금지합니다. (e.g., "BPHC", "관리국", "규칙", "당신은 사상체")</li>
+                        <li>만약 '노스'가 방송 플랫폼의 닉네임이 아닌 귀하의 <span class="redacted">[데이터 말소]</span>를 부를 경우, 즉시 모든 전자기기의 전원을 차단하고 24시간 동안 인터넷에 접속하지 마십시오.</li>
+                    </ol>
+
+                    <div class="widget note">
+                        <h3>최신 주석 (2025/11/10)</h3>
+                        <p>상기 지침은 사상체-Aj-06-SP-0341이 자의로 변칙성을 제어함에 따라(문서 X-C 참조) 현재 대부분 완화되었으나, 만일의 사태에 대비해 모든 탐사자는 본 지침을 숙지할 것을 강력히 권고함.</p>
+                    </div>
+                </div>
+
+                <div id="page-article" class="page-content hidden">
+                    <h2 id="article-title">사상체 문서</h2>
+                    <div class="article-header">
+                        <strong>식별 코드:</strong> <span id="article-id" class="monospace"></span><br>
+                        <strong>위험 등급:</strong> <span id="article-class"></span><br>
+                        <strong>격리 상태:</strong> <span id="article-status"></span>
+                    </div>
+
+                    <h3>특수 격리 절차</h3>
+                    <div id="article-containment"></div>
+
+                    <h3>설명</h3>
+                    <div id="article-description"></div>
+
+                    <h3>부록</h3>
+                    <div id="article-appendix"></div>
+                </div>
+
+                <div id="page-access-denied" class="page-content hidden">
+                    <h2 class="danger-text">접근 거부 (ACCESS DENIED)</h2>
+                    <p>귀하의 보안 인가 등급 <strong>[LEVEL 1: 탐사자]</strong>로는 해당 정보에 접근할 수 없습니다.</p>
+                    <p>이 접근 시도는 기록되었으며, 보안 통제부로 자동 보고됩니다.</p>
+                    <p class="monospace">LOG_ID: <span id="log-id"></span></p>
+                    <button id="return-button">이전 페이지로 돌아가기</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
