@@ -26,24 +26,12 @@ const DocView = () => {
       {/* 종이 질감 배경 컨테이너 */}
       <div className="border-2 border-black p-6 md:p-10 relative shadow-lg max-w-4xl mx-auto bg-[url('https://www.transparenttextures.com/patterns/paper.png')]">
         
-        {/* 다중 도장 레이어 */}
-        <div className="absolute top-4 right-4 z-10 select-none pointer-events-none">
-          {/* 기밀 등급 도장 */}
-          <div className="border-4 border-red-600 text-red-600 p-2 transform rotate-12 opacity-70 font-black text-xl md:text-2xl font-mono uppercase mb-2">
-            CONFIDENTIAL<br/>LEVEL 3
-          </div>
-          {/* 승인 도장 */}
-          <div className="border-3 border-[#322659] text-[#322659] px-3 py-1 transform -rotate-6 opacity-60 font-bold text-sm font-mono mt-2">
-            APPROVED<br/>
-            <span className="text-xs">2023-11-██</span>
-          </div>
-        </div>
 
         {/* 문서 헤더 - 공문서 양식 */}
         <div className="border-4 border-double border-black mb-8">
           {/* 상단 문서 정보 바 */}
           <div className="bg-gray-200 border-b-2 border-black px-4 py-2 flex justify-between items-center text-xs font-mono">
-            <span className="font-bold">문서번호: APMB-DOC-{selectedDoc.id}</span>
+            <span className="font-bold">문서번호: {selectedDoc.id}</span>
             <span className="text-gray-600">보안등급: TS (Top Secret)</span>
           </div>
 
@@ -55,13 +43,7 @@ const DocView = () => {
                 <h1 className="text-2xl md:text-3xl font-black tracking-tight text-[#322659] leading-tight">
                   {selectedDoc.name}
                 </h1>
-              </div>
-              <div className="border-2 border-black bg-black text-white px-3 py-2 transform -rotate-2 shadow-md">
-                <div className="text-[10px] opacity-70 mb-0.5">ID</div>
-                <div className="font-mono text-base md:text-lg font-bold tracking-wider">
-                  {selectedDoc.id}
-                </div>
-              </div>
+              </div> 
             </div>
           </div>
 
@@ -87,20 +69,6 @@ const DocView = () => {
                   </td>
                   <td className="px-4 py-3">
                     <span className="font-bold text-base font-mono">{selectedDoc.type}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-r-2 border-gray-400 bg-gray-100 px-4 py-2 font-bold text-gray-700 text-xs align-middle">
-                    작성일자
-                  </td>
-                  <td className="px-4 py-2 text-xs font-mono text-gray-600 border-r border-gray-300">
-                    2002-██-██
-                  </td>
-                  <td className="border-l-2 border-r-2 border-gray-400 bg-gray-100 px-4 py-2 font-bold text-gray-700 text-xs align-middle">
-                    최종 갱신
-                  </td>
-                  <td className="px-4 py-2 text-xs font-mono text-gray-600">
-                    2023-11-20
                   </td>
                 </tr>
               </tbody>
