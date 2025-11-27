@@ -5,7 +5,7 @@ export const THEME = {
   text: 'text-black',
   primary: 'text-[#322659]',
   alert: 'text-[#D9534F]',
-  fontKr: 'font-["Nanum_Gothic",_sans-serif]', // 한글 폰트 (바탕체 느낌)
+  fontKr: 'font-[mono,_sans-serif]', // 한글 폰트 (바탕체 느낌)
   fontEn: 'font-mono',  // 영문 폰트 (고정폭)
 };
 
